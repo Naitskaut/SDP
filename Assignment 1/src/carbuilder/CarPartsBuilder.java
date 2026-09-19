@@ -12,10 +12,10 @@ public class CarPartsBuilder implements CarBuilder{
 
     @Override
     public CarPartsBuilder reset(){
-        type = null;
-        engine = null;
-        transmission = null;
-        seats = 0;
+        this.type = null;
+        this.engine = null;
+        this.transmission=null;
+        this.seats = 0;
         return this;
     }
 

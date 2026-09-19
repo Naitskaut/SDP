@@ -108,7 +108,7 @@ Car -> type=SPORT, engine=Sport engine, 8.0L, 5000 km, transmission=MANUAL, seat
 - Seats: 2
 ```
 
-`Main.java` also demonstrates building a `SUV` and a `CITY` car through
+`Notification.java` also demonstrates building a `SUV` and a `CITY` car through
 `CarDirector`, assembling a fully custom car via direct chaining (no
 Director), and a validation failure case (an out-of-range seat count throws
 `IllegalStateException` instead of producing a broken `Car`).
