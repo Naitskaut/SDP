@@ -13,6 +13,9 @@ public class Amplifier {
     }
 
     public void off() {
+        if (!on){
+            return;
+        }
         this.on = false;
         this.dvd = null;
         System.out.println("Amplifier off");

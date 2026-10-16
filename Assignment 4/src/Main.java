@@ -1,21 +1,11 @@
 import Facade.HomeTheaterFacade;
-import Subsystem.Amplifier;
-import Subsystem.DvdPlayer;
-import Subsystem.PopcornPopper;
-import Subsystem.Projector;
-import Subsystem.Screen;
-import Subsystem.TheaterLights;
+import Facade.HomeTheaterInstaller;
 
+//Client - uses only the facade, never creates or calls a device directly
 public class Main {
     public static void main(String[] args) {
-        Amplifier amp = new Amplifier();
-        DvdPlayer dvd = new DvdPlayer();
-        Projector projector = new Projector();
-        Screen screen = new Screen();
-        TheaterLights lights = new TheaterLights();
-        PopcornPopper popper = new PopcornPopper();
-
-        HomeTheaterFacade homeTheater = new HomeTheaterFacade(amp, dvd, projector, screen, lights, popper);
+        HomeTheaterInstaller installer = new HomeTheaterInstaller();
+        HomeTheaterFacade homeTheater = installer.homeTheater();
 
         homeTheater.watchMovie("Interstellar");
         System.out.println();

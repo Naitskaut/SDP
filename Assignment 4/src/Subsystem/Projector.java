@@ -1,16 +1,31 @@
 package Subsystem;
 
 public class Projector {
-
+    private final int lampHoursLeft;
     private boolean on;
     private DvdPlayer input;
 
+    public Projector() {
+        this(2000);
+    }
+
+    public Projector(int lampHoursLeft) {
+        this.lampHoursLeft = lampHoursLeft;
+    }
+
     public void on() {
+        if (lampHoursLeft <= 0) {
+            throw new IllegalStateException("Projector lamp is burned out");
+        }
         this.on = true;
         System.out.println("Projector on");
+
     }
 
     public void off() {
+        if (!on){
+            return;
+        }
         this.on = false;
         this.input = null;
         System.out.println("Projector off");

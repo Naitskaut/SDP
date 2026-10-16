@@ -10,6 +10,9 @@ public class PopcornPopper {
     }
 
     public void off() {
+        if (!on) {
+            return;
+        }
         this.on = false;
         System.out.println("Popcorn Popper off");
     }
