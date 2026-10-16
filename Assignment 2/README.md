@@ -1,4 +1,4 @@
-# Notification & Branding Service
+# Factory.Notification & Branding Service
 
 Assignment #2 — Factory Method & Abstract Factory
 ShP-2216 Software Design Patterns, Astana IT University
@@ -20,15 +20,15 @@ and styled according to a brand identity (Corporate or Marketing/Promo) before s
 - Concrete Products: `Corporate*` / `Promo*` implementations of each
 - Abstract Factory: `BrandFactory`
 - Concrete Factories: `CorporateBrandFactory`, `MarketingPromoFactory`
-- Client: `Client` — builds the final message text from a `BrandFactory`, without ever
+- AbstractFactory.Client: `Client` — builds the final message text from a `BrandFactory`, without ever
   instantiating a concrete product itself
 
 ## How it fits together
 
 ```
-BrandFactory → Client.compose(message) → String (styled text)
+AbstractFactory.BrandFactory → AbstractFactory.Client.compose(message) → String (styled text)
                                               ↓
-                          NotificationSender.dispatch(recipient, styledText)
+                          Factory.NotificationSender.dispatch(recipient, styledText)
 ```
 
 `Client` and `NotificationSender` don't know about each other — `Client` only produces a
@@ -39,28 +39,28 @@ BrandFactory → Client.compose(message) → String (styled text)
 ```
 src/
  ├── notification/
- │    ├── Notification.java
- │    ├── EmailNotification.java
- │    ├── SmsNotification.java
- │    ├── PushNotification.java
- │    ├── NotificationSender.java
- │    ├── EmailNotificationSender.java
- │    ├── SmsNotificationSender.java
- │    └── PushNotificationSender.java
+ │    ├── Factory.Notification.java
+ │    ├── Factory.EmailNotification.java
+ │    ├── Factory.SmsNotification.java
+ │    ├── Factory.PushNotification.java
+ │    ├── Factory.NotificationSender.java
+ │    ├── Factory.EmailNotificationSender.java
+ │    ├── Factory.SmsNotificationSender.java
+ │    └── Factory.PushNotificationSender.java
  ├── branding/
- │    ├── MessageHeader.java
- │    ├── CorporateHeader.java
- │    ├── PromoHeader.java
- │    ├── MessageBodyFormatter.java
- │    ├── CorporateBodyFormatter.java
- │    ├── PromoBodyFormatter.java
- │    ├── ActionButton.java
- │    ├── CorporateActionButton.java
- │    ├── PromoActionButton.java
- │    ├── BrandFactory.java
- │    ├── CorporateBrandFactory.java
- │    ├── MarketingPromoFactory.java
- │    └── Client.java
+ │    ├── AbstractFactory.MessageHeader.java
+ │    ├── AbstractFactory.CorporateHeader.java
+ │    ├── AbstractFactory.PromoHeader.java
+ │    ├── AbstractFactory.MessageBodyFormatter.java
+ │    ├── AbstractFactory.CorporateBodyFormatter.java
+ │    ├── AbstractFactory.PromoBodyFormatter.java
+ │    ├── AbstractFactory.ActionButton.java
+ │    ├── AbstractFactory.CorporateActionButton.java
+ │    ├── AbstractFactory.PromoActionButton.java
+ │    ├── AbstractFactory.BrandFactory.java
+ │    ├── AbstractFactory.CorporateBrandFactory.java
+ │    ├── AbstractFactory.MarketingPromoFactory.java
+ │    └── AbstractFactory.Client.java
  └── Main.java
 ```
 
